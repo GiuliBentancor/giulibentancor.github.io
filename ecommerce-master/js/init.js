@@ -35,9 +35,9 @@ function onSignIn(googleUser) {
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-      document.getElementById("nombre").innerHTML = 'Invitado';
-      window.location.assign("https://giulibentancor.github.io/ecommerce-master/login.html");
+    document.getElementById("nombre").innerHTML = 'Invitado';
     });
+    window.location.assign("https://giulibentancor.github.io/ecommerce-master/login.html");
      }
 
 var showSpinner = function(){
