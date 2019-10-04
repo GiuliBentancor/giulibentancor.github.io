@@ -27,10 +27,14 @@ function mostrarMensajeInicio() {
 }
 
 function onSignIn(googleUser) {
-        var profile = googleUser.getBasicProfile();
+        var profile = googleUser.getBasicProfile(); 
+      {
         sessionStorage.setItem('usuario', profile.getName());
+      }
+      {
         window.location.assign("https://giulibentancor.github.io/ecommerce-master/index.html");
       }
+}
  
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
