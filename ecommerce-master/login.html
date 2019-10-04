@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <link href="css/LOGIN.css" rel="stylesheet">
+    <script src="js/init.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="76102310930-uf8k5lgjegh3hh2iruc2i9jiarmd0ms7.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+    <div class="imgcontainer">
+            <img src="img/cover_back.png" alt="IMG" class="IMG">
+    </div>
+        
+    <form style='width: 50' class="form-signin"  action='index.html' method="GET">
+       
+        <div class="container">
+        <label for="uname"><b>Usuario</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" id='usuario' required>
+
+        <label for="psw"><b>Contraseña</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+        <br>
+        <br>
+        <button type="submit" onclick="guardarUsuario();"> Enviar </button>
+        <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        </div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div class="container" style="background-color:#f1f1f1">
+        </div>
+    </form>
+</body>
+</html>
