@@ -72,18 +72,17 @@
           </div>
         </nav>
     <div class="container mt-5">
-    <main role="main">
-        <div class="Acontainer">
-            <div>
+        <div class="text-center p-4">
             <h2>Mi Carrito</h2>
-            </div>
+        </div>
+    <main role="main">
+        <div class="Acontainer">  
             <div class="row justify-content-md-center">
-              <div>
-                <h4 class="mb-3">Información de los productos</h4>
                     <form>
                       <div class="item" id='cart-info' >
                           <div class="container">
-                              <table name="tableContacts" id="tableContacts" class="table table-bordered">
+                           <h4 class="mb-3">Información de los productos</h4>
+                           <table name="tableContacts" id="tableContacts" class="table table-bordered">
                                <thead class="thead-dark">
                                  <tr>
                                   <th>Producto</th> 
@@ -97,50 +96,41 @@
                                <tr id="art-info">
                                  <td><span> </span></td>
                                  <td><span> </span></td>
-                                 <td id="unitCost"><span> </span> </td>
-                                 <td id="count"> <span> </span> </td>
-                                <td id="subtotal"> <span> </span></td>
+                                 <td><span> </span> </td>
+                                 <td> <span id='count'> </span> </td>
+                                 <td> <span id="subtotal"> </span></td>
                                 </tr>
-                              </table>
+                            </table>
                       </div>
-                    </div>
-                  </main>
-                  <br>
-            </div>
-            </div>
-              <div>
-              <br>
-              <br>
-              <br>
-              <br>
-                <hr>
-                  <h5 class="mb-3">Dirección de Envío</h5>
-                  <div class="d-block my-3">
-                     Calle: <input type="text" id="calle">
-                     Número: <input type="number" id="numero"> <br>
+                      </div>
+                    <br>
+                    <hr>
+              <h5 class="mb-3">Dirección de Envío</h5>
+                    <div class="d-block my-3">
+                    Calle: <input type="text" id="calle">
+                    Número: <input type="number" id="numero"> <br>
                      <br>
-                     Esquina: <input type="text" id="esquina"> 
-                     País: <input type="text" id="pais">
+                    Esquina: <input type="text" id="esquina"> 
+                    País: <input type="text" id="pais">
                      <br>
                      <br>
-                     <br>
-                     <h5 class="mb-3">Método de Envío</h5>
-                    <div class="custom-control custom-radio">
-                      <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
-                      <label class="custom-control-label" for="goldradio">Premium 2-5 días (15%)</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                      <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
-                      <label class="custom-control-label" for="premiumradio">Express 5-8 días (7%)</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                      <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
-                      <label class="custom-control-label" for="standardradio">Estándar 12-15 días (5%)</label>
-                    </div>
-            
+                     <hr>
+              <h5 class="mb-3">Método de Envío</h5>
+                  <div class="custom-control custom-radio">
+                    <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+                    <label class="custom-control-label" for="goldradio">Premium 2-5 días (15%)</label>
                   </div>
+                  <div class="custom-control custom-radio">
+                    <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+                    <label class="custom-control-label" for="premiumradio">Express 5-8 días (7%)</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+                    <label class="custom-control-label" for="standardradio">Estándar 12-15 días (5%)</label>
+                  </div>
+
                   <hr class="mb-4">
-                  <h4 class="mb-3">Costo</h4>
+              <h4 class="mb-3">Costo</h4>
                   <ul class="list-group mb-3">
                       <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
@@ -148,21 +138,26 @@
                         </div>
                         <span class="text-muted" id="subtotal2"> </span>
                       </li>
-              
+                      <li class="list-group-item d-flex justify-content-between lh-condensed">
+                          <div>
+                            <h6 class="my-0">Costo de envío</h6>
+                            <small class="text-muted">Según el método de envío </small>
+                          </div>
+                          <span class="text-muted" id="comissionEnvio">-</span>
+                        </li>
                       <li class="list-group-item d-flex justify-content-between">
                         <span>Total ($)</span>
                         <strong id="totalCostText">-</strong>
                       </li>
                     </ul>
-                    <div class="row">
-                      <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Elegir Forma de Pago</button>
-                    </div>
-                  <hr class="mb-4">
-                  <button class="btn btn-primary btn-lg" type="submit">Comprar</button>
+              <div class="row">
+                  <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Elegir Forma de Pago</button>
+              </div>
+              <hr class="mb-4">
+              <button class="btn btn-primary btn-lg" type="submit">Comprar</button>
               </div>
               </div>
-            </div>
-        </main>
+          </main>
      </form>
       <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
         <div class="modal-dialog" role="document">
