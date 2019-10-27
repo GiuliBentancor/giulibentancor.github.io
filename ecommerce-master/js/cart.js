@@ -1,6 +1,6 @@
 let unitCost= 0;
 //let productCurrency = "";
-//let subtotal = 0;
+let subtotal = 0;
 //let shippingPercentage = 0.15;
 //let total = 0;
 //let paymentTypeSelected = false;
@@ -14,11 +14,11 @@ let unitCost= 0;
 
 
 function updateSubtotal(){
-  document.getElementById("subtotal").innerHTML= 
-  parseInt(document.getElementById("count").value) * unitCost ;
+  subtotal= parseInt(document.getElementById("count").value) * unitCost;
+
+  document.getElementById("subtotal").innerHTML= subtotal;
   
-  document.getElementById("subtotal2").innerHTML= 
-  parseInt(document.getElementById("count").value) * unitCost ;
+  document.getElementById("subtotal2").innerHTML= subtotal;
 
 }
 
@@ -37,11 +37,11 @@ function showArticles(array){
         unitCost= producto.unitCost
         
         contenido += `
-             <td id="imagen"> <img src=" `+ producto.src +`" width="80%" > </td>          
-             <td id="name"> `+ producto.name +` </td>
-             <td id="unitCost">` + producto.unitCost + `</td>
-             <td id="currency">` + producto.currency + `</td>
-             <td id="cantidad"> <input type="number" id="count" placeholder="" required="" value="1" min="0" onchange='updateSubtotal();'> </td>
+             <td> <img src=" `+ producto.src +`" width="80%" > </td>          
+             <td> `+ producto.name +` </td>
+             <td>` + producto.unitCost + `</td>
+             <td>` + producto.currency + `</td>
+             <td> <input type="number" id="count" placeholder="" required="" value="2" min="0" onchange='updateSubtotal();'> </td>
              <td id="subtotal">  </td>
     
     `
@@ -54,12 +54,6 @@ function showArticles(array){
 }
          
 
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
- 
-
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
@@ -67,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function(e){
            showArticles(resultObj.data.articles);
         }
          else {
-            alert ('no funciono');
+            alert ('error');
         }
     });
 });
