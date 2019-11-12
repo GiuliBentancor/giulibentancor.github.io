@@ -158,9 +158,10 @@
                         <strong id="totalCostText" >-</strong>
                       </li>
                     </ul>
-              <hr>
-              <h5 class="mb-3">Método de Pago</h5>
-              <div class="row">
+                  <br>
+                  <hr>
+                  <h5 class="mb-3">Método de Pago</h5>
+                    <div class="row">
                     <button type="button" data-toggle="modal" data-target="#contidionsModal" id='formadepago' class='form-control'>Elegir Forma de Pago</button>
                     <div class="invalid-feedback">
                       Debe seleccionar un método de pago
@@ -187,14 +188,14 @@
               <div class="container">
                   <div class="row">
                     <div class="custom-control custom-radio">
-                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
+                      <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input" onclick="creditCardSelected();">
                       <label class="custom-control-label" for="creditCardPaymentRadio">Tarjeta de crédito</label>
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-md-6 mb-3">
-                      <label for="shippingStreet">Número de tarjeta</label>
+                      <label for="shippingStreet" >Número de tarjeta</label>
                       <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="" >
                       <div class="invalid-feedback">
                         Ingresa un número de tarjeta
@@ -219,7 +220,7 @@
                   </div>
                   <div class="row">
                     <div class="custom-control custom-radio">
-                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
+                    <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input" onclick="bankingTransferSelected();">
                       <label class="custom-control-label" for="bankingRadio">Transferencia bancaria</label>
                     </div>
                   </div>
