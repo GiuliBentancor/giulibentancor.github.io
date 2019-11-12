@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       
         let dircalle = document.getElementById("calle");
         let dirnumero = document.getElementById("numero");
-        let forma = document.getElementById('formadepago');
+        let forma= document.getElementById('formadepago');
 
         let infoMissing = false;
 
@@ -151,12 +151,12 @@ document.addEventListener("DOMContentLoaded", function(e){
             infoMissing = true;
         }
 
-        if (forma.value = formatext ) {
+        if (forma.textContent === formatext ) {
             forma.classList.add('is-invalid');
             infoMissing = true;
-        }
+         }
 
-        if(!infoMissing)
+        if (!infoMissing)
         {
             //Aquí ingresa si pasó los controles, irá a enviar
             //la solicitud para crear la publicación.
@@ -170,6 +170,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 if (resultObj.status === 'ok')
                 {
                     msgToShow = resultObj.data.msg;
+                    
                 }
                 else if (resultObj.status === 'error')
                 {
@@ -177,7 +178,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                 }
     
                 bootbox.alert(msgToShow, null);
+               
             });
+            
         }
     
         //Esto se debe realizar para prevenir que el formulario se envíe (comportamiento por defecto del navegador)
