@@ -68,9 +68,20 @@ function updateSubtotal(){
         });
  });
     
-        //function showPaymentTypeSelected(){}
+ 
+function creditCardSelected() {
+    document.getElementById("creditCardNumber").disabled= false; 
+    document.getElementById("creditCardSecurityCode").disabled= false; 
+    document.getElementById("dueDate").disabled= false;  
+    document.getElementById("bankAccountNumber").disabled= true; 
+}
 
-//function hidePaymentTypeNotSelected(){}
+function bankingTransferSelected(){
+    document.getElementById("creditCardNumber").disabled= true; 
+    document.getElementById("creditCardSecurityCode").disabled= true; 
+    document.getElementById("dueDate").disabled= true;  
+    document.getElementById("bankAccountNumber").disabled= false; 
+}
 
 
 function showArticles(array){
