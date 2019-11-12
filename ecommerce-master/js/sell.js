@@ -18,7 +18,7 @@ function updateTotalCosts(){
 
     let unitCostToShow = MONEY_SYMBOL + productCost;
     let comissionToShow = Math.round((comissionPercentage * 100)) + PERCENTAGE_SYMBOL;
-    let totalCostToShow = MONEY_SYMBOL + (Math.round(productCost * comissionPercentage * 100) / 100);
+    let totalCostToShow = MONEY_SYMBOL + (Math.round(productCost * (1 + comissionPercentage)));
 
     unitProductCostHTML.innerHTML = unitCostToShow;
     comissionCostHTML.innerHTML = comissionToShow;
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             //Aquí ingresa si pasó los controles, irá a enviar
             //la solicitud para crear la publicación.
 
-            getJSONData(PUBLISH_PRODUCT_URL).then(function(resultObj){
+            getJSONData(CART_BUY_URL).then(function(resultObj){
                 let msgToShowHTML = document.getElementById("resultSpan");
                 let msgToShow = "";
     
