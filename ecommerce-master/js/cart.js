@@ -18,7 +18,7 @@ function updateTotalCosts(){
     let comissionCostHTML = document.getElementById("comissionEnvio");
     let totalCostHTML = document.getElementById("totalCostText");
 
-    let comissionToShow = Math.round(subtotal * shippingPercentage);
+    let comissionToShow = (Math.round(subtotal * shippingPercentage));
     let totalCostToShow = (Math.round(subtotal * (1 + shippingPercentage)));
 
     comissionCostHTML.innerHTML = comissionToShow;
