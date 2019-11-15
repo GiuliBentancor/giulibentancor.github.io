@@ -1,18 +1,13 @@
 let unitCost= 0;
-//let productCurrency = "";
 let subtotal = 0;
 let shippingPercentage = 0.15;
-let PERCENTAGE_SYMBOL = '%';
 let total = 0;
-//let paymentTypeSelected = false;
 const CREDIT_CARD_PAYMENT = "Tarjeta de crédito";
 const BANKING_PAYMENT = "Transferencia bancaria";
 const formatext = "Elegir Forma de Pago";
 let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
 
-//Función que se utiliza para actualizar los costos de publicación
-//
 
 function updateTotalCosts(){
     let comissionCostHTML = document.getElementById("comissionEnvio");
@@ -54,8 +49,6 @@ function updateSubtotal(){
   updateTotalCosts();
 
 }
-
-
 
 
     document.addEventListener("DOMContentLoaded", function(e){
