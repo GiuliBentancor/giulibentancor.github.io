@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       
         let dircalle = document.getElementById("calle");
         let dirnumero = document.getElementById("numero");
+        let pais= document.getElementById('pais');
         let forma= document.getElementById('formadepago');
 
         let infoMissing = false;
@@ -130,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         dircalle.classList.remove('is-invalid');
         dirnumero.classList.remove('is-invalid');
         forma.classList.remove('is-invalid');
+        pais.classList.remove('is-invalid');
     
     
         if (dircalle.value === "")
@@ -141,6 +143,12 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (dirnumero.value === "")
         {
             dirnumero.classList.add('is-invalid');
+            infoMissing = true;
+        }
+
+        if (pais.value === "")
+        {
+            pais.classList.add('is-invalid');
             infoMissing = true;
         }
 
