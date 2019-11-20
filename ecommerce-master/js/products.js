@@ -5,35 +5,41 @@ var currentSortCriteria= undefined;
 var minCost = undefined;
 var maxCost = undefined;
 
-function sortProducts(criteria, array){
+function sortProducts(criteria, array)
+{
     let result = [];
     if (criteria === ORDER_ASC_BY_COST)
     {
-        result = array.sort(function(a, b) {
+        result = array.sort(function(a, b)
+        {
             if ( a.cost < b.cost ){ return -1; }
             if ( a.cost > b.cost ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_DESC_BY_COST){
-        result = array.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return -1; }
-            if ( a.cost < b.cost ){ return 1; }
+    }
+    else if (criteria === ORDER_DESC_BY_COST)
+    {
+        result = array.sort(function(a, b) 
+        {
+            if ( a.cost > b.cost ){ return -1;}
+            if ( a.cost < b.cost ){ return 1;}
             return 0;
         });
     }
     return result;
 }
 
-function showProductsList(){
+function showProductsList()
+{
 
     let htmlContentToAppend = "";
-    for(let i = 0; i < currentProductsArray.length; i++){
+    for(let i = 0; i < currentProductsArray.length; i++)
+    {
         let products = currentProductsArray[i];
 
         if (((minCost == undefined) || (minCost != undefined && parseInt(products.cost) >= minCost)) &&
-            ((maxCost == undefined) || (maxCost != undefined && parseInt(products.cost) <= maxCost))) {
-
-
+            ((maxCost == undefined) || (maxCost != undefined && parseInt(products.cost) <= maxCost))) 
+            {
             htmlContentToAppend += `
             
             <div class="col-md-4">
@@ -49,42 +55,49 @@ function showProductsList(){
             </a>
             </div>
             `
-        }
+            }
 
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
-    function sortAndShowProducts(sortCriteria, productsArray){
+function sortAndShowProducts(sortCriteria, productsArray)
+{
         currentSortCriteria = sortCriteria;
     
-        if(productsArray != undefined){
+        if(productsArray != undefined)
+        {
             currentProductsArray = productsArray;
         }
     
         currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
-    
         //Muestro las categorías ordenadas
         showProductsList();
-    }
+}
     
-    document.addEventListener("DOMContentLoaded", function(e){
-        getJSONData(PRODUCTS_URL).then(function(resultObj){
-            if (resultObj.status === "ok"){
+document.addEventListener("DOMContentLoaded", function(e)
+{
+        getJSONData(PRODUCTS_URL).then(function(resultObj)
+        {
+            if (resultObj.status === "ok")
+            {
                 sortAndShowProducts(ORDER_ASC_BY_COST, resultObj.data);
             }
         });
     
-        document.getElementById("sortAsc").addEventListener("click", function(){
+        document.getElementById("sortAsc").addEventListener("click", function()
+        {
             sortAndShowProducts(ORDER_ASC_BY_COST);
         });
     
-        document.getElementById("sortDesc").addEventListener("click", function(){
+        document.getElementById("sortDesc").addEventListener("click", function()
+        {
             sortAndShowProducts(ORDER_DESC_BY_COST);
         });
     
     
-        document.getElementById("clearRangeFilter").addEventListener("click", function(){
+        document.getElementById("clearRangeFilter").addEventListener("click", function()
+        {
             document.getElementById("rangeFilterCountMin").value = "";
             document.getElementById("rangeFilterCountMax").value = "";
     
@@ -94,26 +107,30 @@ function showProductsList(){
             showProductsList();
         });
     
-        document.getElementById("rangeFilterCount").addEventListener("click", function(){
-            //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-            //de productos por categoría.
+        document.getElementById("rangeFilterCount").addEventListener("click", function()
+        {
+            //Obtengo el mínimo y máximo de los intervalos para filtrar
             minCost = document.getElementById("rangeFilterCountMin").value;
             maxCost = document.getElementById("rangeFilterCountMax").value;
     
-            if ((minCost != undefined) && (minCost != "") && (parseInt(minCost)) >= 0){
+            if ((minCost != undefined) && (minCost != "") && (parseInt(minCost)) >= 0)
+            {
                 minCost = parseInt(minCost);
             }
-            else{
+            else
+            {
                 minCost = undefined;
             }
     
-            if ((maxCost != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0){
+            if ((maxCost != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0)
+            {
                 maxCost = parseInt(maxCost);
             }
-            else{
+            else
+            {
                 maxCost = undefined;
             }
     
             showProductsList();
         });
-    });
+});
