@@ -9,7 +9,8 @@ let ERROR_MSG = "Ha habido un error :(, verifica qué pasó.";
 
 
 
-function updateTotalCosts(){
+function updateTotalCosts()
+{
     let comissionCostHTML = document.getElementById("comissionEnvio");
     let totalCostHTML = document.getElementById("totalCostText");
 
@@ -21,25 +22,8 @@ function updateTotalCosts(){
 }
 
 
-document.addEventListener("DOMContentLoaded", function(e){
-    document.getElementById("premradio").addEventListener("change", function(){
-        shippingPercentage = 0.15;
-        updateTotalCosts();
-    });
-    
-    document.getElementById("expradio").addEventListener("change", function(){
-        shippingPercentage = 0.07;
-        updateTotalCosts();
-    });
-
-    document.getElementById("standradio").addEventListener("change", function(){
-        shippingPercentage = 0.05;
-        updateTotalCosts();
-    });
-   });
-
-
-function updateSubtotal(){
+function updateSubtotal()
+{
   subtotal= parseInt(document.getElementById("count").value) * unitCost;
 
   document.getElementById("subtotal").innerHTML= subtotal;
@@ -48,28 +32,18 @@ function updateSubtotal(){
 
   updateTotalCosts();
 
-}
-
-
-    document.addEventListener("DOMContentLoaded", function(e){
-        document.getElementById("creditCardPaymentRadio").addEventListener("change", function(){
-            document.getElementById('formadepago').innerHTML= CREDIT_CARD_PAYMENT;
-        });
-        
-        document.getElementById("bankingRadio").addEventListener("change", function(){
-            document.getElementById('formadepago').innerHTML= BANKING_PAYMENT;
-        });
- });
-    
+}   
  
-function creditCardSelected() {
+function creditCardSelected() 
+{
     document.getElementById("creditCardNumber").disabled= false; 
     document.getElementById("creditCardSecurityCode").disabled= false; 
     document.getElementById("dueDate").disabled= false;  
     document.getElementById("bankAccountNumber").disabled= true; 
 }
 
-function bankingTransferSelected(){
+function bankingTransferSelected()
+{
     document.getElementById("creditCardNumber").disabled= true; 
     document.getElementById("creditCardSecurityCode").disabled= true; 
     document.getElementById("dueDate").disabled= true;  
@@ -77,11 +51,13 @@ function bankingTransferSelected(){
 }
 
 
-function showArticles(array){
+function showArticles(array)
+{
 
     let contenido = "";
 
-    for(let i = 0; i < array.length; i++){
+    for(let i = 0; i < array.length; i++)
+    {
         let producto = array[i];
 
         unitCost= producto.unitCost
@@ -95,29 +71,60 @@ function showArticles(array){
              <td id="subtotal">  </td>
     
     `
-
-
-    }
-    
+    }   
     document.getElementById("art-info").innerHTML = contenido;
     updateSubtotal();
 }
          
 
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(CART_INFO_URL).then(function(resultObj){
-        if (resultObj.status === "ok"){
-
+document.addEventListener("DOMContentLoaded", function(e)
+{
+    getJSONData(CART_INFO_URL).then(function(resultObj)
+    {
+        if (resultObj.status === "ok")
+        {
            showArticles(resultObj.data.articles);
         }
          else {
             alert ('error');
         }
     });
+       
+
+    document.getElementById("premradio").addEventListener("change", function()
+    {
+            shippingPercentage = 0.15;
+            updateTotalCosts();
+    });
+        
+    document.getElementById("expradio").addEventListener("change", function()
+    {
+            shippingPercentage = 0.07;
+            updateTotalCosts();
+    });
+    
+    document.getElementById("standradio").addEventListener("change", function()
+    {
+            shippingPercentage = 0.05;
+            updateTotalCosts();
+     });
+    
+    document.getElementById("creditCardPaymentRadio").addEventListener("change", function()
+    {
+            document.getElementById('formadepago').innerHTML= CREDIT_CARD_PAYMENT;
+    });
+        
+    
+    document.getElementById("bankingRadio").addEventListener("change", function()
+    {
+            document.getElementById('formadepago').innerHTML= BANKING_PAYMENT;
+    });
+
 
     var cartForm = document.getElementById("buyinfo");
 
-    cartForm.addEventListener("submit", function(e){
+    cartForm.addEventListener("submit", function(e)
+    {
 
       
         let dircalle = document.getElementById("calle");
@@ -159,15 +166,11 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         if (!infoMissing)
         {
-            //Aquí ingresa si pasó los controles, irá a enviar
-            //la solicitud para crear la publicación.
     
             getJSONData(CART_BUY_URL).then(function(resultObj){
                 let msgToShowHTML = document.getElementById("resultSpan");
                 let msgToShow = "";
     
-                //Si la publicación fue exitosa, devolverá mensaje de éxito,
-                //de lo contrario, devolverá mensaje de error.
                 if (resultObj.status === 'ok')
                 {
                     msgToShow = resultObj.data.msg;
@@ -188,6 +191,4 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (e.preventDefault) e.preventDefault();
             return false;
     });
-
 });
-
